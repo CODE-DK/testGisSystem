@@ -12,9 +12,9 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new FileReader(args[0]));
         String line;
         while ((line = reader.readLine()) != null) {
-            line = line.replaceAll("[^a-zA-Zа-яА-Я\\d\\s]", "");
             String[] words = line.split("\\s");
             for (String word : words) {
+                word = word.replaceAll("[,|.|!|?]", "");
                 if (result.containsKey(word)) {
                     Integer count = result.get(word);
                     count += 1;
